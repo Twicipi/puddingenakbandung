@@ -22,7 +22,7 @@ const toggleMenu = () => {
   <header>
     <nav>
       <div class="logo">
-        <img src="../assets/img/logo.jpeg" alt="Logo">
+        <img src="../assets/img/logopudding.jpeg" alt="Logo">
       </div>
       <div class="hamburger" @click="toggleMenu">
         <span></span>
