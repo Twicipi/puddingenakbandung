@@ -12,6 +12,12 @@ import CardWhatsapp from '@/components/CardWhatsapp.vue';
       <CardWhatsapp />
     </div>
   </div>
+
+  <footer class="footer">
+
+      <p>&copy; 2024 Jigglers Dessert. All rights reserved.</p>
+
+  </footer>
 </template>
 
 <style scoped>
@@ -22,13 +28,13 @@ import CardWhatsapp from '@/components/CardWhatsapp.vue';
   color: white;
   background-color: #3c3736;
   height: 50vh;
-  padding: 20px; /* Menambahkan padding untuk memastikan konten tidak terlalu dekat dengan tepi */
-  text-align: center; /* Menyelaraskan teks ke tengah */
+  padding: 20px;
+  text-align: center;
 }
 
 hr {
-  margin: 0 auto; /* Menyelaraskan garis horizontal ke tengah */
-  width: 50%; /* Mengurangi lebar garis horizontal */
+  margin: 0 auto;
+  width: 50%;
 }
 
 h1 {
@@ -38,30 +44,82 @@ h1 {
 .social-media {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Menambahkan jarak antar elemen */
+  gap: 20px;
+}
+
+.footer {
+  background-color: #2a2726;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-family: "Montserrat";
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-social-media {
+  margin-bottom: 10px;
+}
+
+.social-icon {
+  margin: 0 10px;
+}
+
+.social-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer p {
+  margin: 0;
 }
 
 /* Media Queries untuk layar kecil (ponsel) */
 @media (max-width: 600px) {
   .contact {
-    height: auto; /* Mengubah tinggi menjadi otomatis untuk layar kecil */
+    height: auto;
   }
 
   .social-media {
-    flex-direction: column; /* Mengubah tata letak menjadi kolom */
-    align-items: center; /* Menyelaraskan item ke tengah */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .social-icon {
+    margin: 5px;
   }
 }
 
 /* Media Queries untuk layar sedang (tablet) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .contact {
-    height: auto; /* Mengubah tinggi menjadi otomatis untuk layar sedang */
+    height: auto;
   }
 
   .social-media {
-    flex-direction: column; /* Mengubah tata letak menjadi kolom */
-    align-items: center; /* Menyelaraskan item ke tengah */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-social-media {
+    margin-bottom: 0;
+  }
+
+  .social-icon {
+    margin: 10px;
   }
 }
 </style>

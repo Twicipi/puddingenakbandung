@@ -6,7 +6,6 @@
     <h1>Menu Kita</h1>
     <hr>
     <p class="tagline">Pudding lembut dan enak, cocok untuk jadi makanan penutup kamu!</p>
-
     <div class="images">
       <div class="card">
         <img src="../assets/img/menus/pudingkecil.jpeg" alt="Pudding 1">

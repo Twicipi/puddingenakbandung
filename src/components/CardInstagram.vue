@@ -21,8 +21,8 @@ a{
 }
 .card {
     margin: 20px;
-    --bg: #d05ddf;
-    --hover-bg: #c9358b;
+    --bg: #d76ce5;
+    --hover-bg: #df48a0;
     --hover-text: #e50087;
     max-width: 23ch;
     text-align: center;
