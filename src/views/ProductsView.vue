@@ -1,4 +1,60 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import gsap from 'gsap';
+
+const products = [
+  {
+    imgsrc: "/src/assets/img/menus/pudingkecil.jpeg",
+    description: "Pudding gula merah mini dengan vla vanilla."
+  },
+  {
+    imgsrc: "/src/assets/img/menus/pudingbesar.jpeg",
+    description: "Pudding gula merah ukuran besar, cocok untuk sharing.",
+    className: "description-2"
+  },
+  {
+    imgsrc: "/src/assets/img/fotopudinggyukaku.jpeg",
+    description: "Mini soft pudding dengan vanilla premium, saus caramel dengan opsi kacang atau regal",
+    className: "description-3"
+  }
+];
+
+const observeElements = ref([]);
+
+const handleIntersection = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: el.dataset.index * 0.3,
+      });
+      observer.unobserve(el); // Stop observing once animation is triggered
+    }
+  });
+};
+
+const setupObserver = () => {
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1
+  });
+  
+  observeElements.value.forEach(el => {
+    observer.observe(el);
+  });
+};
+
+onMounted(() => {
+  setupObserver();
+});
+
+onBeforeUnmount(() => {
+  observeElements.value.forEach(el => {
+    observer.unobserve(el);
+  });
+});
 </script>
 
 <template>
@@ -7,17 +63,9 @@
     <hr>
     <p class="tagline">Pudding lembut dan enak, cocok untuk jadi makanan penutup kamu!</p>
     <div class="images">
-      <div class="card" v-scroll-animation>
-        <img src="../assets/img/menus/pudingkecil.jpeg" alt="Pudding 1">
-        <p>Pudding gula merah mini dengan vla vanilla.</p>
-      </div>
-      <div class="card" v-scroll-animation>
-        <img src="../assets/img/menus/pudingbesar.jpeg" alt="Pudding 2">
-        <p class="description-2">Pudding gula merah ukuran besar, cocok untuk sharing.</p>
-      </div>
-      <div class="card" v-scroll-animation>
-        <img src="../assets/img/fotopudinggyukaku.jpeg" alt="Pudding 3">
-        <p class="description-3">Mini soft pudding dengan vanilla premium, saus caramel dengan opsi kacang atau regal</p>
+      <div v-for="(product, index ) in products" :data-index="index" :key="index" class="card" ref="observeElements">
+        <img :src="product.imgsrc" :alt="'Pudding ' + (index + 1)">
+        <p :class="product.className">{{ product.description }}</p>
       </div>
     </div>
   </div>
@@ -73,14 +121,8 @@
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 10px; /* Menambahkan margin agar gambar tidak terlalu rapat */
-  opacity: 0; /* Awal animasi */
-  transform: translateY(20px); /* Awal animasi */
-}
-
-.card.animate {
-  opacity: 1; /* Akhir animasi */
-  transform: translateY(0); /* Akhir animasi */
-  transition: opacity 1.5s ease, transform 1.5s ease;
+  opacity: 0; /* Initial opacity */
+  transform: translateY(100px); /* Initial transform */
 }
 
 .card:hover {
