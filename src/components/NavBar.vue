@@ -73,7 +73,7 @@ nav {
   height: 30px;
   background: transparent;
   cursor: pointer;
-  display: block;
+  display: none; /* Hide by default */
 }
 
 .burger input {
