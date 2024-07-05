@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onUpdated } from 'vue';
 import { useRouter } from "vue-router";
+import gsap from 'gsap';
 
 const router = useRouter();
 const isMenuOpen = ref(false);
@@ -16,6 +17,13 @@ const scrollToSection = (sectionId) => {
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+onUpdated(() => {
+  const menu = document.querySelector('ul');
+  if (isMenuOpen.value) {
+    gsap.fromTo(menu, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 0.4 });
+  }
+});
 </script>
 
 <template>
@@ -187,3 +195,4 @@ li {
   }
 }
 </style>
+  

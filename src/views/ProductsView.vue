@@ -1,7 +1,7 @@
 <template>
   <div id="menu" class="menu">
-    <h1>Menu Kita</h1>
-    <hr>
+    <h1 class="animated-title">Menu Kita</h1>
+    <hr class="animated-hr">
     <p class="tagline">Pudding lembut dan enak, cocok untuk jadi makanan penutup kamu!</p>
     <div class="images">
       <div class="card" ref="card1">
@@ -22,6 +22,7 @@
 
 <script setup>
 import gsap from 'gsap';
+import { onMounted, onBeforeUnmount } from 'vue';
 
 const handleIntersection = (entries, observer) => {
   entries.forEach(entry => {
@@ -32,33 +33,61 @@ const handleIntersection = (entries, observer) => {
         y: 0,
         duration: 0.8,
         delay: el.dataset.index * 0.3,
+        onComplete: () => {
+          observer.unobserve(el); // Stop observing once animation is triggered and completed
+          el.classList.add('animated'); // Add a class to mark this element as animated
+        },
       });
-      observer.unobserve(el); // Stop observing once animation is triggered
     }
   });
 };
 
-const setupObserver = () => {
-  const observer = new IntersectionObserver(handleIntersection, {
+const handleTitleIntersection = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const tl = gsap.timeline();
+      tl.from('.animated-title', { x: -200, opacity: 0, duration: 1 })
+        .from('.animated-hr', { width: 0, duration: 1 }, '-=0.5');
+      observer.unobserve(entry.target); // Stop observing once animation is triggered and completed
+    }
+  });
+};
+
+let observer;
+let titleObserver;
+
+const setupObservers = () => {
+  observer = new IntersectionObserver(handleIntersection, {
     threshold: 0.1
   });
 
   document.querySelectorAll('.card').forEach((el, index) => {
-    el.dataset.index = index; // Assign index for delay purposes
-    observer.observe(el);
+    if (!el.classList.contains('animated')) {
+      el.dataset.index = index; // Assign index for delay purposes
+      observer.observe(el);
+    }
   });
+
+  titleObserver = new IntersectionObserver(handleTitleIntersection, {
+    threshold: 0.1
+  });
+
+  titleObserver.observe(document.querySelector('.animated-title'));
 };
 
-import { onMounted, onBeforeUnmount } from 'vue';
-
 onMounted(() => {
-  setupObserver();
+  setupObservers();
 });
 
 onBeforeUnmount(() => {
-  document.querySelectorAll('.card').forEach(el => {
-    observer.unobserve(el);
-  });
+  if (observer) {
+    document.querySelectorAll('.card').forEach(el => {
+      observer.unobserve(el);
+    });
+  }
+  if (titleObserver) {
+    titleObserver.disconnect();
+  }
 });
 </script>
 
@@ -114,6 +143,11 @@ onBeforeUnmount(() => {
   margin: 10px; /* Menambahkan margin agar gambar tidak terlalu rapat */
   opacity: 0; /* Initial opacity */
   transform: translateY(100px); /* Initial transform */
+}
+
+.card.animated {
+  opacity: 1 !important; /* Ensure animated cards stay visible */
+  transform: translateY(0) !important; /* Ensure animated cards stay in place */
 }
 
 .card:hover {

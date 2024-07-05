@@ -27,7 +27,18 @@
 </template>
 
 <script setup>
-// Script setup for Vue 3 Composition API
+import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+
+onMounted(() => {
+  const timeline = gsap.timeline();
+
+  timeline
+    .from('.about', { duration: 1, opacity: 0 })
+    .from('.about-content h1', { duration: 1, y: -50, opacity: 0 })
+    .from('.about-content p', { duration: 1, y: -50, opacity: 0 }, '-=0.5')
+    .from('.card', { duration: 1, y: 50, opacity: 0, stagger: 0.3 }, '-=0.5');
+});
 </script>
 
 <style scoped>
