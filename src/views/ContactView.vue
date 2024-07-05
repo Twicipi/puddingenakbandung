@@ -50,7 +50,7 @@ h1 {
 .footer {
   background-color: #2a2726;
   color: white;
-  padding: 20px 0;
+  padding: 10px 0;
   text-align: center;
   font-family: "Montserrat";
 }
@@ -61,18 +61,6 @@ h1 {
   align-items: center;
 }
 
-.footer-social-media {
-  margin-bottom: 10px;
-}
-
-.social-icon {
-  margin: 0 10px;
-}
-
-.social-icon img {
-  width: 30px;
-  height: 30px;
-}
 
 .footer p {
   margin: 0;
