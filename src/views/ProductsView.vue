@@ -7,15 +7,15 @@
     <hr>
     <p class="tagline">Pudding lembut dan enak, cocok untuk jadi makanan penutup kamu!</p>
     <div class="images">
-      <div class="card">
+      <div class="card" v-scroll-animation>
         <img src="../assets/img/menus/pudingkecil.jpeg" alt="Pudding 1">
         <p>Pudding gula merah mini dengan vla vanilla.</p>
       </div>
-      <div class="card">
+      <div class="card" v-scroll-animation>
         <img src="../assets/img/menus/pudingbesar.jpeg" alt="Pudding 2">
         <p class="description-2">Pudding gula merah ukuran besar, cocok untuk sharing.</p>
       </div>
-      <div class="card">
+      <div class="card" v-scroll-animation>
         <img src="../assets/img/fotopudinggyukaku.jpeg" alt="Pudding 3">
         <p class="description-3">Mini soft pudding dengan vanilla premium, saus caramel dengan opsi kacang atau regal</p>
       </div>
@@ -73,6 +73,14 @@
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 10px; /* Menambahkan margin agar gambar tidak terlalu rapat */
+  opacity: 0; /* Awal animasi */
+  transform: translateY(20px); /* Awal animasi */
+}
+
+.card.animate {
+  opacity: 1; /* Akhir animasi */
+  transform: translateY(0); /* Akhir animasi */
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .card:hover {

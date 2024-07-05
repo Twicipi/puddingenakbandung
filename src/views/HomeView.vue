@@ -10,7 +10,7 @@ import ProductsView from './ProductsView.vue';
   <NavBar/>
   <HeroSection/>
   <AboutView v-scroll-animation class="fade-in-up"/>
-  <ProductsView v-scroll-animation class="fade-in-up"/>
+  <ProductsView/>
   <ContactView v-scroll-animation class="fade-in-up"/>
 </template>
 
@@ -19,7 +19,7 @@ import ProductsView from './ProductsView.vue';
 .fade-in-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 1.5s ease, transform 2s ease;
+  transition: opacity 3s ease, transform 5s ease;
 }
 
 .fade-in-up.animate {
