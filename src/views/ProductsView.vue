@@ -4,16 +4,16 @@ import gsap from 'gsap';
 
 const products = [
   {
-    imgsrc: "/public/src/assets/img/menus/pudingkecil.jpeg",
+    imgsrc: "src/assets/img/menus/pudingkecil.jpeg",
     description: "Pudding gula merah mini dengan vla vanilla."
   },
   {
-    imgsrc: "/public/src/assets/img/menus/pudingbesar.jpeg",
+    imgsrc: "src/assets/img/menus/pudingbesar.jpeg",
     description: "Pudding gula merah ukuran besar, cocok untuk sharing.",
     className: "description-2"
   },
   {
-    imgsrc: "/public/src/assets/img/fotopudinggyukaku.jpeg",
+    imgsrc: "src/assets/img/fotopudinggyukaku.jpeg",
     description: "Mini soft pudding dengan vanilla premium, saus caramel dengan opsi kacang atau regal",
     className: "description-3"
   }
