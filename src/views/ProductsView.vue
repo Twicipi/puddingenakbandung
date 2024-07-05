@@ -1,24 +1,27 @@
-<script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import gsap from 'gsap';
-const products = [
-  {
-    imgsrc: "/img/menus/pudingkecil.jpeg",
-    description: "Pudding gula merah mini dengan vla vanilla."
-  },
-  {
-    imgsrc: "/img/menus/pudingbesar.jpeg",
-    description: "Pudding gula merah ukuran besar, cocok untuk sharing.",
-    className: "description-2"
-  },
-  {
-    imgsrc: "/img/fotopudinggyukaku.jpeg",
-    description: "Mini soft pudding dengan vanilla premium, saus caramel dengan opsi kacang atau regal",
-    className: "description-3"
-  }
-];
+<template>
+  <div id="menu" class="menu">
+    <h1>Menu Kita</h1>
+    <hr>
+    <p class="tagline">Pudding lembut dan enak, cocok untuk jadi makanan penutup kamu!</p>
+    <div class="images">
+      <div class="card" ref="card1">
+        <img src="../assets/img/menus/pudingkecil.jpeg" alt="Pudding 1">
+        <p>Pudding gula merah mini dengan vla vanilla.</p>
+      </div>
+      <div class="card" ref="card2">
+        <img src="../assets/img/menus/pudingbesar.jpeg" alt="Pudding 2">
+        <p class="description-2">Pudding gula merah ukuran besar, cocok untuk sharing.</p>
+      </div>
+      <div class="card" ref="card3">
+        <img src="../assets/img/fotopudinggyukaku.jpeg" alt="Pudding 3">
+        <p class="description-3">Mini soft pudding dengan vanilla premium, saus caramel dengan opsi kacang atau regal.</p>
+      </div>
+    </div>
+  </div>
+</template>
 
-const observeElements = ref([]);
+<script setup>
+import gsap from 'gsap';
 
 const handleIntersection = (entries, observer) => {
   entries.forEach(entry => {
@@ -39,36 +42,25 @@ const setupObserver = () => {
   const observer = new IntersectionObserver(handleIntersection, {
     threshold: 0.1
   });
-  
-  observeElements.value.forEach(el => {
+
+  document.querySelectorAll('.card').forEach((el, index) => {
+    el.dataset.index = index; // Assign index for delay purposes
     observer.observe(el);
   });
 };
+
+import { onMounted, onBeforeUnmount } from 'vue';
 
 onMounted(() => {
   setupObserver();
 });
 
 onBeforeUnmount(() => {
-  observeElements.value.forEach(el => {
+  document.querySelectorAll('.card').forEach(el => {
     observer.unobserve(el);
   });
 });
 </script>
-
-<template>
-  <div id="menu" class="menu">
-    <h1>Menu Kita</h1>
-    <hr>
-    <p class="tagline">Pudding lembut dan enak, cocok untuk jadi makanan penutup kamu!</p>
-    <div class="images">
-      <div v-for="(product, index ) in products" :data-index="index" :key="index" class="card" ref="observeElements">
-        <img :src="product.imgsrc" :alt="'Pudding ' + (index + 1)">
-        <p :class="product.className">{{ product.description }}</p>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
