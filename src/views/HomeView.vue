@@ -1,36 +1,29 @@
 <script setup>
 import NavBar from '../components/NavBar.vue'
-import HerosSection from '../views/HeroSection.vue'
+import HeroSection from '../views/HeroSection.vue'
 import AboutView from './AboutView.vue';
 import ContactView from './ContactView.vue';
-import ProductsViewVue from './ProductsView.vue';
+import ProductsView from './ProductsView.vue';
 </script>
 
 <template>
   <NavBar/>
- <HerosSection/>
-  <AboutView class="fade-in-up"/>
-  <ProductsViewVue class="fade-in-up"/>
-  <ContactView class="fade-in-up"/>
+  <HeroSection/>
+  <AboutView v-scroll-animation class="fade-in-up"/>
+  <ProductsView v-scroll-animation class="fade-in-up"/>
+  <ContactView v-scroll-animation class="fade-in-up"/>
 </template>
 
 <style scoped>
-
-
 /* Animasi Fade In Up */
 .fade-in-up {
   opacity: 0;
-  animation: fadeInUp 2.5s forwards;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 2s ease;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.fade-in-up.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
