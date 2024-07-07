@@ -90,7 +90,6 @@ onBeforeUnmount(() => {
   }
 });
 </script>
-
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
@@ -98,10 +97,30 @@ onBeforeUnmount(() => {
 .menu {
   margin-top: 20px;
   height: 100vh;
-  background: linear-gradient(135deg, #3c3535, #4b4242, #706565);
+  background: url('../assets/img/fotopudinggyukaku.jpeg') no-repeat center center/cover;
   margin: 0 auto;
   padding: 40px;
   text-align: justify;
+  position: relative; /* Relative positioning to enable pseudo-element */
+}
+
+.menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1; /* Position behind content but in front of background */
+}
+
+.menu h1,
+.menu p,
+.menu hr,
+.images {
+  position: relative; /* Ensure these elements are above the overlay */
+  z-index: 2;
 }
 
 .menu h1 {
@@ -110,6 +129,13 @@ onBeforeUnmount(() => {
   font-size: 3em;
   text-align: center;
   font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.menu hr {
+  border: none;
+  height: 2px;
+  background-color: white; /* Change color to white */
   margin-bottom: 20px;
 }
 
@@ -160,6 +186,11 @@ onBeforeUnmount(() => {
   height: auto;
   border-radius: 8px;
   margin-bottom: 10px;
+  transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+.card img:hover {
+  transform: scale(1.05); /* Scale up the image on hover */
 }
 
 .card p {
