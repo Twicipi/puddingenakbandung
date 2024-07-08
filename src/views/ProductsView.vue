@@ -161,7 +161,7 @@ onBeforeUnmount(() => {
 .card {
   width: 300px;
   padding: 20px;
-  background-color: white;
+  background: linear-gradient(110deg,#9c0c0cce,#862727c1,#1f1f1f8c,#cfcfcfb9); /* Darker linear gradient background */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   border-radius: 8px;
@@ -196,6 +196,7 @@ onBeforeUnmount(() => {
 .card p {
   font-family: "Montserrat";
   font-size: 1em;
+  color: white; /* Make text color white to contrast with darker background */
 }
 
 .description-2 {
