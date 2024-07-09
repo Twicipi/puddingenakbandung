@@ -26,25 +26,43 @@ import CardWhatsapp from '@/components/CardWhatsapp.vue';
 .contact {
   font-family: "Montserrat";
   color: white;
-  background-color: #3c3736;
+  background-image: url("../assets/img/fotopudingpaket.jpeg");
   height: 50vh;
   padding: 20px;
   text-align: center;
+  position: relative; /* Relative positioning to enable pseudo-element */
 }
 
-hr {
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1; /* Ensure overlay is above the background image */
+}
+
+hr.gep {
   margin: 0 auto;
   width: 50%;
+  position: relative;
+  z-index: 2; /* Ensure hr is above the overlay */
 }
 
 h1 {
   margin-bottom: 20px;
+  position: relative; /* Ensure h1 is above the overlay */
+  z-index: 2; /* Ensure h1 is above the overlay */
 }
 
 .social-media {
   display: flex;
   justify-content: center;
   gap: 20px;
+  position: relative; /* Ensure it's positioned relative for z-index to work */
+  z-index: 2; /* Ensure content is above the overlay */
 }
 
 .footer {
@@ -54,13 +72,6 @@ h1 {
   text-align: center;
   font-family: "Montserrat";
 }
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 
 .footer p {
   margin: 0;
