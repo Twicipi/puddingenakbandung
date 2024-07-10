@@ -1,6 +1,6 @@
 # Jigglers-Dessert
+Website yang saya buat untuk usaha pudding tante saya, menggunakan Vue.js dan GSAP untuk animasinya.
 
-This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
 
