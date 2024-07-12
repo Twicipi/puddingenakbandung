@@ -2,8 +2,8 @@
   <div id="about" class="about">
     <div class="about-content">
       <h1>
-        <span class="highlight">Pudding</span> Lembut, Manisnya 
-        <span class="highlight">Menggugah Selera</span>
+        <i><span class="highlight">Pudding</span></i> Lembut, Manisnya
+        <i> <span class="highlight">Menggugah Selera</span></i>
       </h1>
       <p>
         Tersaji dengan tekstur yang lembut, pudding ini menggugah selera dengan
@@ -27,17 +27,17 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import { gsap } from 'gsap';
+import { onMounted } from "vue";
+import { gsap } from "gsap";
 
 onMounted(() => {
   const timeline = gsap.timeline();
 
   timeline
-    .from('.about', { duration: 1, opacity: 0 })
-    .from('.about-content h1', { duration: 1, y: -50, opacity: 0 })
-    .from('.about-content p', { duration: 1, y: -50, opacity: 0 }, '-=0.5')
-    .from('.card', { duration: 1, y: 50, opacity: 0, stagger: 0.3 }, '-=0.5');
+    .from(".about", { duration: 1, opacity: 0 })
+    .from(".about-content h1", { duration: 1, y: -50, opacity: 0 })
+    .from(".about-content p", { duration: 1, y: -50, opacity: 0 }, "-=0.5")
+    .from(".card", { duration: 1, y: 50, opacity: 0, stagger: 0.3 }, "-=0.5");
 });
 </script>
 
