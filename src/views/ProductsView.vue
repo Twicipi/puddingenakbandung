@@ -5,16 +5,22 @@
     <p class="tagline">Pudding lembut dan enak, cocok untuk jadi makanan penutup kamu!</p>
     <div class="images">
       <div class="card" ref="card1">
-        <img src="../assets/img/menus/pudingkecil.jpeg" alt="Pudding 1">
-        <p>Pudding gula merah mini dengan vla vanilla.</p>
+        <img src="../assets/img/menus/puddingkecil.jpeg" alt="Pudding 1">
+        <div class="overlay">
+          <p>Pudding gula merah mini dengan vla vanilla.</p>
+        </div>
       </div>
       <div class="card" ref="card2">
-        <img src="../assets/img/menus/pudingbesar.jpeg" alt="Pudding 2">
-        <p class="description-2">Pudding gula merah ukuran besar, cocok untuk sharing.</p>
+        <img src="../assets/img/menus/puddingbesar.jpeg" alt="Pudding 2">
+        <div class="overlay">
+          <p class="description-2">Pudding gula merah ukuran besar, cocok untuk sharing.</p>
+        </div>
       </div>
       <div class="card" ref="card3">
         <img src="../assets/img/fotopudinggyukaku.jpeg" alt="Pudding 3">
-        <p class="description-3">Mini soft pudding dengan vanilla premium, saus caramel dengan opsi kacang atau regal.</p>
+        <div class="overlay">
+          <p class="description-3">Mini soft pudding dengan vanilla premium, saus caramel dengan opsi kacang atau regal.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -90,6 +96,7 @@ onBeforeUnmount(() => {
   }
 });
 </script>
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
@@ -160,15 +167,15 @@ onBeforeUnmount(() => {
 
 .card {
   width: 300px;
-  padding: 20px;
-  background: linear-gradient(110deg,#9c0c0cce,#862727c1,#1f1f1f8c,#cfcfcfb9); /* Darker linear gradient background */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  height: 400px; /* Set the height of the card */
+  position: relative; /* Ensure overlay is positioned relative to the card */
+  overflow: hidden; /* Hide anything outside the card */
   border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 10px; /* Menambahkan margin agar gambar tidak terlalu rapat */
   opacity: 0; /* Initial opacity */
   transform: translateY(100px); /* Initial transform */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
+  background: linear-gradient(110deg,#9c0c0cce,#862727c1,#1f1f1f8c,#cfcfcfb9); /* Darker linear gradient background */
 }
 
 .card.animated {
@@ -183,20 +190,39 @@ onBeforeUnmount(() => {
 
 .card img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the entire card */
   transition: transform 0.3s ease; /* Transition for hover effect */
 }
 
-.card img:hover {
+.card:hover img {
   transform: scale(1.05); /* Scale up the image on hover */
 }
 
-.card p {
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Transition for overlay visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.card:hover .overlay {
+  opacity: 1; /* Show the overlay on hover */
+}
+
+.overlay p {
   font-family: "Montserrat";
   font-size: 1em;
-  color: white; /* Make text color white to contrast with darker background */
 }
 
 .description-2 {
