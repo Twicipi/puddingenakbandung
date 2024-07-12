@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="hero">
     <div class="pudding-pict">
@@ -25,6 +23,8 @@
     </div>
   </div>
 </template>
+
+<script setup></script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
@@ -115,6 +115,11 @@ hr {
   .tagline-content p {
     font-size: 0.9em; /* Mengubah ukuran font agar sesuai dengan layar kecil */
   }
+
+  hr {
+    margin-top: 30px;
+    width: 50%;
+  }
 }
 
 /* Media Queries untuk layar sedang (tablet) */
@@ -136,7 +141,11 @@ hr {
   }
 
   .tagline-content p {
-    font-size: 1em; /* Mengubah ukuran font agar sesuai dengan layar sedang */
+    font-size: 1em; /* Menyesuaikan ukuran font agar sesuai dengan layar sedang */
+  }
+
+  hr {
+    width: 75%; /* Mengubah lebar hr agar sesuai dengan layar sedang */
   }
 }
 </style>
