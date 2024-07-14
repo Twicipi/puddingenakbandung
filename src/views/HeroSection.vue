@@ -122,7 +122,6 @@ hr {
   }
 }
 
-/* Media Queries untuk layar sedang (tablet) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .hero {
     flex-direction: column; /* Mengubah layout menjadi kolom */
