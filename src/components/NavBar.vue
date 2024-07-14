@@ -1,3 +1,25 @@
+<template>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="../assets/img/logopudding.jpeg" alt="Logo">
+      </div>
+      <div class="burger" @click="toggleMenu">
+        <input type="checkbox" :checked="isMenuOpen" />
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul :class="{ open: isMenuOpen, fade: true }">
+        <li><a @click="scrollToSection('hero')" class="nav-link">Home</a></li>
+        <li><a @click="scrollToSection('about')" class="nav-link">About</a></li>
+        <li><a @click="scrollToSection('menu')" class="nav-link">Menu</a></li>
+        <li><a @click="scrollToSection('contact')" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+</template>
+
 <script setup>
 import { ref, onUpdated } from 'vue';
 import { useRouter } from "vue-router";
@@ -25,28 +47,6 @@ onUpdated(() => {
   }
 });
 </script>
-
-<template>
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="../assets/img/logopudding.jpeg" alt="Logo">
-      </div>
-      <div class="burger" @click="toggleMenu">
-        <input type="checkbox" :checked="isMenuOpen" />
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul :class="{ open: isMenuOpen, fade: true }">
-        <li><a @click="scrollToSection('hero')" class="nav-link">Home</a></li>
-        <li><a @click="scrollToSection('about')" class="nav-link">About</a></li>
-        <li><a @click="scrollToSection('menu')" class="nav-link">Menu</a></li>
-        <li><a @click="scrollToSection('contact')" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-</template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -147,13 +147,32 @@ li {
 }
 
 .nav-link {
+  position: relative;
   color: black;
+  font-weight: 500;
   text-decoration: none;
   cursor: pointer;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: rgb(29, 29, 29);
+  transition: width 0.3s ease-in-out;
 }
 
 .nav-link:hover {
   color: rgb(82, 82, 82);
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -193,6 +212,14 @@ li {
     color: black;
     padding: 10px 0;
   }
+
+  .nav-link::after {
+    height: 2px;
+    background: black;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
 }
 </style>
-  
