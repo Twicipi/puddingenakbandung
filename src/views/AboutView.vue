@@ -14,13 +14,16 @@
     </div>
     <div class="images">
       <div class="card">
-        <img
-          src="../assets/img/foto-orang/foto-ibu-satu.jpeg"
-          alt="Pudding 1"
-        />
+        <picture>
+          <source srcset="../assets/img/foto-orang/foto-ibu-satu.webp" type="image/webp">
+          <img src="../assets/img/foto-orang/foto-ibu-satu.jpeg" alt="Pudding 1" width="300" height="200">
+        </picture>
       </div>
       <div class="card">
-        <img src="../assets/img/foto-orang/foto-ibu-dua.jpeg" alt="Pudding 2" />
+        <picture>
+          <source srcset="../assets/img/foto-orang/foto-ibu-dua.webp" type="image/webp">
+          <img src="../assets/img/foto-orang/foto-ibu-dua.jpeg" alt="Pudding 2" width="300" height="200">
+        </picture>
       </div>
     </div>
   </div>
