@@ -15,12 +15,22 @@
     <div class="images">
       <div class="card">
         <picture>
-          <img src="../assets/img/foto-orang/foto-ibu-satu.jpeg" alt="Pudding 1" width="300" height="200">
+          <img
+            src="../assets/img/foto-orang/foto-ibu-satu.jpeg"
+            alt="Pudding 1"
+            width="300"
+            height="200"
+          />
         </picture>
       </div>
       <div class="card">
         <picture>
-          <img src="../assets/img/foto-orang/foto-ibu-dua.jpeg" alt="Pudding 2" width="300" height="200">
+          <img
+            src="../assets/img/foto-orang/foto-ibu-dua.jpeg"
+            alt="Pudding 2"
+            width="300"
+            height="200"
+          />
         </picture>
       </div>
     </div>

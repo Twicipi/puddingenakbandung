@@ -1,6 +1,6 @@
 <script setup>
-import CardInstagram from '@/components/CardInstagram.vue';
-import CardWhatsapp from '@/components/CardWhatsapp.vue';
+import CardInstagram from "@/components/CardInstagram.vue";
+import CardWhatsapp from "@/components/CardWhatsapp.vue";
 </script>
 
 <template>
@@ -14,9 +14,7 @@ import CardWhatsapp from '@/components/CardWhatsapp.vue';
   </div>
 
   <footer class="footer">
-
-      <p>&copy; 2024 Jigglers Dessert. All rights reserved.</p>
-
+    <p>&copy; 2024 Jigglers Dessert. All rights reserved.</p>
   </footer>
 </template>
 
