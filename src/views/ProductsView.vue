@@ -53,7 +53,7 @@ const handleTitleIntersection = (entries, observer) => {
     if (entry.isIntersecting) {
       const tl = gsap.timeline();
       tl.from('.animated-title', { x: -200, opacity: 0, duration: 1 })
-        .from('.animated-hr', { width: 0, duration: 1 }, '-=0.5');
+        .from('.animated-hr', { width: 0, duration: 1.5 }, '-=0.5');
       observer.unobserve(entry.target); // Stop observing once animation is triggered and completed
     }
   });
