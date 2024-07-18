@@ -1,6 +1,6 @@
 <template>
        <a href="https://wa.link/u7zh5m" target="_blank" rel="noopener noreferrer">
-                <div class="card">
+                <div class="card-wa">
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                             viewBox="0 0 256 256">
@@ -20,7 +20,7 @@ a{
     text-decoration: none;
     color: white;
 }
-.card{
+.card-wa{
     margin: 20px;
     --bg: #6a9c50;
     --hover-bg: #5ac947ed;
@@ -45,17 +45,17 @@ a{
     line-height: 1.5em;
     font-size: 1em;
 }
-.card> :not(span) {
+.card-wa> :not(span) {
     transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1);
 }
 
-.card>strong {
+.card-wa>strong {
     display: block;
     font-size: 1.4rem;
     letter-spacing: -0.035em;
 }
 
-.card span {
+.card-wa span {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -70,17 +70,17 @@ a{
     transition: all 0.3s cubic-bezier(0.6, 0.4, 0, 1);
 }
 
-.card:hover span {
+.card-wa:hover span {
     top: 0;
     font-size: 1.2em;
 }
 
-.card:hover {
+.card-wa:hover {
     background: var(--hover-bg);
 }
 
-.card:hover>div,
-.card:hover>strong {
+.card-wa:hover>div,
+.card-wa:hover>strong {
     opacity: 0;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
      <a href="https://www.instagram.com/jigglersdesert" target="_blank" rel="noopener noreferrer">
-                <div class="card">
+                <div class="card-ig">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -19,7 +19,7 @@ a{
     text-decoration: none;
     color: white;
 }
-.card {
+.card-ig {
     margin: 20px;
     --bg: #d76ce5;
     --hover-bg: #df48a0;
@@ -45,17 +45,17 @@ a{
     font-size: 1em;
 }
 
-.card> :not(span) {
+.card-ig> :not(span) {
     transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1);
 }
 
-.card>strong {
+.card-ig>strong {
     display: block;
     font-size: 1.4rem;
     letter-spacing: -0.035em;
 }
 
-.card span {
+.card-ig span {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -70,17 +70,17 @@ a{
     transition: all 0.3s cubic-bezier(0.6, 0.4, 0, 1);
 }
 
-.card:hover span {
+.card-ig:hover span {
     top: 0;
     font-size: 1.2em;
 }
 
-.card:hover {
+.card-ig:hover {
     background: var(--hover-bg);
 }
 
-.card:hover>div,
-.card:hover>strong {
+.card-ig:hover>div,
+.card-ig:hover>strong {
     opacity: 0;
 }
 </style>

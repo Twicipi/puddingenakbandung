@@ -80,14 +80,14 @@ onMounted(() => {
 
 .about-content h1 {
   font-family: "Libre-Baskerville";
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 .about-content p {
   font-family: "Montserrat";
-  font-size: 1em;
+  font-size: 1.5em;
   line-height: 1.2;
   margin-bottom: 20px;
 }

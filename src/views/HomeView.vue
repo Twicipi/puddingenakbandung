@@ -15,4 +15,5 @@ import ProductsView from './ProductsView.vue';
 </template>
 
 <style scoped>
+
 </style>
